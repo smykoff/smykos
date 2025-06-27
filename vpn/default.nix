@@ -1,0 +1,6 @@
+{
+  imports = [
+    ./wireguard
+    ./sing-box
+  ];
+}
