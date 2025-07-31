@@ -4,6 +4,8 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    mission-center
+
     psmisc
     unstable.nekoray
     rust-analyzer
@@ -13,9 +15,9 @@
     ly
     wireguard-ui
     podman-compose
-    unstable.steam
     nixd
     agenix.packages.${system}.default
+    git
 
     adwaita-icon-theme
     gnome-icon-theme

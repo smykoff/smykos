@@ -10,4 +10,10 @@
     description = "MrThursby";
     extraGroups = [ "networkmanager" "wheel" ];
   };
+
+  users.users.zaebir = {
+    isNormalUser = true;
+    description = "zaebir";
+    extraGroups = [ "networkmanager" "wheel" ];
+  };
 }

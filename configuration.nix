@@ -23,6 +23,7 @@
     ./sections/printing.nix
     ./sections/sounds.nix
     ./sections/ssh.nix
+    ./sections/steam.nix
     ./sections/timezone.nix
     ./sections/users.nix
     ./sections/waydroid.nix

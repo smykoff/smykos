@@ -1,11 +1,15 @@
 {
-  virtualisation.containers.enable = true;
-  
+  users.extraGroups.docker.members = [ "smykoff" "smykoil" ];
+
   virtualisation = {
-    podman = {
+    docker = {
       enable = true;
-      dockerCompat = true;
-      defaultNetwork.settings.dns_enabled = true;
     };
+
+    # podman = {
+    #   enable = true;
+    #   dockerCompat = true;
+    #   defaultNetwork.settings.dns_enabled = true;
+    # };
   };
 }

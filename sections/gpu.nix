@@ -4,14 +4,19 @@
   environment.systemPackages = with pkgs; [
     vulkan-tools vulkan-loader
     clinfo
+    mesa
+    libdrm
+    radeontop
+
+    # pkgsi686Linux.mesa
+    # pkgsi686Linux.libdrm
+    # pkgsi686Linux.vulkan-loader
+    # pkgsi686Linux.vulkan-tools
   ];
 
-  # GPU
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [ amdvlk rocmPackages.clr.icd ];
-    extraPackages32 = with pkgs; [ driversi686Linux.amdvlk ];
   };
 
   environment.variables = {
