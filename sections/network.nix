@@ -8,7 +8,8 @@
   networking.firewall.allowedTCPPorts = [
     22
     9510 9511 9512
-    3000 9000
+    3000 5713
+    9000
     8096
     8090
   ];

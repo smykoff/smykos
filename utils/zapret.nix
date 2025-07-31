@@ -4,7 +4,7 @@
   environment.systemPackages = with unstable; [ zapret ];
 
   services.zapret = {
-    enable = false;
+    enable = true;
 
     package = unstable.zapret;
 

@@ -17,7 +17,7 @@
     ./sections/gpu.nix
     ./sections/jellyfin.nix
     ./sections/language.nix
-    # ./sections/libsecret.nix
+    ./sections/libsecret.nix
     ./sections/network.nix
     ./sections/packages.nix
     ./sections/printing.nix
