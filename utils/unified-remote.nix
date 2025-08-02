@@ -8,7 +8,7 @@ let
     src = pkgs.fetchurl {
       url = "https://www.unifiedremote.com/d/linux-x64-portable";
       name = "unified-remote.tar.gz";
-      sha256 = "ae496fe8fa616b51e110fba76cbf042d8750f59d4537816b56c3709f2dff800e"; # актуально на май 2025
+      sha256 = "4wA2VPb5QN30TWa72pUVTYfvsxlGTO8Vngh7wDHXhDE=";
     };
 
     nativeBuildInputs = [ pkgs.autoPatchelfHook ];

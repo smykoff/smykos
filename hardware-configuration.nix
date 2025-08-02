@@ -8,18 +8,18 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/019e4d8c-0945-433d-814e-c031958b81d1";
-      fsType = "f2fs";
+    { device = "/dev/disk/by-uuid/a5541c3b-64d9-412d-ad51-dc061df6c45a";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/D5F8-1C77";
+    { device = "/dev/disk/by-uuid/48AB-0B55";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
@@ -37,7 +37,7 @@
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/330d3f0f-5ddf-4280-bd98-da410b04d6f8"; }
+    [ { device = "/dev/disk/by-uuid/3ee771ef-2fa6-4dad-8602-a1338d473220"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -45,8 +45,8 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.eno1.useDHCP = lib.mkDefault true;
+  # networking.interfaces.wlp1s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
