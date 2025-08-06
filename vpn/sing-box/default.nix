@@ -26,8 +26,7 @@ let
   };
 
   configs = [
-    "srv761806"
-    "srv531098"
+    "kart"
     "m1lav"
   ];
 
