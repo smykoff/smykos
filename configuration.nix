@@ -1,6 +1,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./disks.nix
 
     ./main.nix
     ./vpn
@@ -10,7 +11,6 @@
     ./utils/unified-remote.nix
 
     ./sections/boot.nix
-    ./sections/disks.nix
     ./sections/dm.nix
     ./sections/docker.nix
     ./sections/fonts.nix

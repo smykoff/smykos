@@ -6,7 +6,6 @@
   age.identityPaths = [
     "/home/smykoff/.ssh/id_smykoil"
     "/home/smykoff/.ssh/id_smykoff"
-    # "/home/smykoff/.ssh/id_smykoff"
   ];
 
   # Configure keymap in X11
