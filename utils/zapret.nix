@@ -18,11 +18,11 @@
       # "--filter-udp=50000-50099 --filter-l7=discord,stun --dpi-desync=fake"
 
       # default (fixed: badseq instead of md5sig)
-      "--filter-tcp=80 --dpi-desync=fake,fakedsplit --dpi-desync-autottl=2 --dpi-desync-fooling=badseq --new ^"
-      "--filter-tcp=443 --hostlist=${./zapret/list-youtube.txt} --dpi-desync=fake,multidisorder --dpi-desync-split-pos=1,midsld --dpi-desync-repeats=11 --dpi-desync-fooling=badseq --dpi-desync-fake-tls-mod=rnd,dupsid,sni=www.google.com --new ^"
-      "--filter-tcp=443 --dpi-desync=fake,multidisorder --dpi-desync-split-pos=midsld --dpi-desync-repeats=6 --dpi-desync-fooling=badseq,badseq --new ^"
-      "--filter-udp=443 --hostlist=${./zapret/list-youtube.txt} --dpi-desync=fake --dpi-desync-repeats=11 --dpi-desync-fake-quic=${./zapret/quic_initial_www_google_com.bin} --new ^"
-      "--filter-udp=443 --dpi-desync=fake --dpi-desync-repeats=11 --new ^"
+      "--filter-tcp=80 --hostlist=${./zapret/list-general.txt} --dpi-desync=fake,fakedsplit --dpi-desync-autottl=2 --dpi-desync-fooling=badseq --new ^"
+      "--filter-tcp=443 --hostlist=${./zapret/list-general.txt} --dpi-desync=fake,multidisorder --dpi-desync-split-pos=1,midsld --dpi-desync-repeats=6 --dpi-desync-fooling=badseq --dpi-desync-fake-tls-mod=rnd,dupsid,sni=www.google.com --new ^"
+      "--filter-tcp=443 --hostlist=${./zapret/list-general.txt} --dpi-desync=fake,multidisorder --dpi-desync-split-pos=midsld --dpi-desync-repeats=4 --dpi-desync-fooling=badseq --new ^"
+      "--filter-udp=443 --hostlist=${./zapret/list-general.txt} --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-fake-quic=${./zapret/quic_initial_www_google_com.bin} --new ^"
+      "--filter-udp=443 --hostlist=${./zapret/list-general.txt} --dpi-desync=fake --dpi-desync-repeats=6 --new ^"
       "--filter-udp=50000-50099 --filter-l7=discord,stun --dpi-desync=fake"
 
       # old
