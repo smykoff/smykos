@@ -1,7 +1,6 @@
 {
   imports = [
-    ./hardware-configuration.nix
-    ./disks.nix
+    /etc/nixos/hardware-configuration.nix
 
     ./main.nix
     ./vpn
