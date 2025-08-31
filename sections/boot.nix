@@ -6,6 +6,8 @@
   boot.plymouth.enable = true;
   boot.plymouth.logo = ../plymouth/smykoil2.png;
   boot.plymouth.theme = "fade-in"; # или "spinfinity", "fade-in", "tribar", "text"
+
+  boot.kernelModules = [ "i2c-dev" ];
   boot.kernelParams = [
     "quiet"
     "splash"
@@ -21,4 +23,6 @@
     # "amdgpu"
     # "nouveau"
   # ];
+
+  hardware.i2c.enable = true;
 }

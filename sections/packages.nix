@@ -3,11 +3,18 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  programs.nekoray = {
+    enable = true;
+    package = unstable.nekoray;
+    tunMode.enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
     mission-center
 
+    yazi
+    helix
     psmisc
-    unstable.nekoray
     rust-analyzer
     sshfs
     go

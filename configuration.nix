@@ -27,6 +27,7 @@
     ./sections/users.nix
     ./sections/waydroid.nix
     ./sections/xdg.nix
+    ./sections/console.nix
   ];
 
   # This value determines the NixOS release from which the default
