@@ -5,9 +5,7 @@
     ./main.nix
     ./vpn
 
-    ./utils/zapret.nix
-    ./utils/ssh-server.nix
-    ./utils/unified-remote.nix
+    ./utils
 
     ./sections/boot.nix
     ./sections/dm.nix
