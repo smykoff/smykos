@@ -28,6 +28,7 @@ let
   configs = [
     "kart"
     "m1lav"
+    "my"
   ];
 
   singBoxServices = builtins.listToAttrs (map (name: {
