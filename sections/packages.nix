@@ -1,4 +1,4 @@
-{ pkgs, unstable, agenix, system, ... }:
+{ pkgs, unstable, agenix, system, winapps, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -25,8 +25,19 @@
     nixd
     agenix.packages.${system}.default
     git
+    whois
+    bind.dnsutils
 
     adwaita-icon-theme
     gnome-icon-theme
+
+    libnotify
+    dialog
+    freerdp3
+    winapps.packages."${system}".winapps
+    winapps.packages."${system}".winapps-launcher
+
+    corefonts
+    vistafonts
   ];
 }
