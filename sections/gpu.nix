@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 
 {
-  services.xserver.videoDrivers = [ "nvidia" ];
+#  services.xserver.videoDrivers = [ "nvidia" ];
 
   environment.systemPackages = with pkgs; [
     vulkan-tools vulkan-loader
@@ -16,12 +16,12 @@
     # pkgsi686Linux.vulkan-tools
   ];
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
+#   hardware.nvidia = {
+#     modesetting.enable = true;
+#     open = false;
+#     nvidiaSettings = true;
+#     package = config.boot.kernelPackages.nvidiaPackages.stable;
+#   };
 
   hardware.opengl = {
     enable = true;

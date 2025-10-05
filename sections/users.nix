@@ -16,4 +16,10 @@
     description = "zaebir";
     extraGroups = [ "networkmanager" "wheel" "i2c" ];
   };
+
+  users.users.smykie = {
+    isNormalUser = true;
+    description = "smykie";
+    extraGroups = [ "networkmanager" "wheel" "i2c" ];
+  };
 }
