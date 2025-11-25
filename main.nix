@@ -8,15 +8,14 @@
     "/home/smykoff/.ssh/id_smykoff"
   ];
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    # layout = "us";
-    variant = "";
-  };
-
   services.xserver = {
     enable = true;
-    layout = "us,ru";
+
+    # Configure keymap in X11
+    xkb = {
+      layout = "us,ru";
+      variant = "";
+    };
 
     windowManager.i3 = {
       enable = true;

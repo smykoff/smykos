@@ -1,5 +1,9 @@
+{ pkgs, ... }:
+
 {
   users.extraGroups.docker.members = [ "smykoff" "smykoil" ];
+
+  environment.systemPackages = with pkgs; [ docker-buildx ];
 
   virtualisation = {
     docker = {

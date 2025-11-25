@@ -10,6 +10,8 @@
   };
 
   environment.systemPackages = with pkgs; [
+    perl
+
     mission-center
 
     yazi
