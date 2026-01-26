@@ -18,6 +18,6 @@
     ../programs/docker.nix
 
     ../modules/gpu-nvidia.nix
-    ../modules/dm-gdm.nix
+    ../modules/dm-ly.nix
   ];
 }
