@@ -1,31 +1,22 @@
 {
   imports = [
-    /etc/nixos/hardware-configuration.nix
-
     ./main.nix
     ./vpn
+    ./programs/packages.nix
 
-    ./utils
-
+    ./sections/agenix.nix
     ./sections/boot.nix
-    ./sections/dm.nix
-    ./sections/docker.nix
+    ./sections/console.nix
+    ./sections/flakes-feature.nix
     ./sections/fonts.nix
-    ./sections/gpu.nix
-    ./sections/jellyfin.nix
     ./sections/language.nix
     ./sections/libsecret.nix
     ./sections/network.nix
-    ./sections/packages.nix
     ./sections/printing.nix
     ./sections/sounds.nix
-    ./sections/ssh.nix
-    ./sections/steam.nix
     ./sections/timezone.nix
     ./sections/users.nix
-    ./sections/waydroid.nix
     ./sections/xdg.nix
-    ./sections/console.nix
   ];
 
   # This value determines the NixOS release from which the default

@@ -1,17 +1,9 @@
 { pkgs, ... }:
 
 {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  age.identityPaths = [
-    "/home/smykoff/.ssh/id_smykoil"
-    "/home/smykoff/.ssh/id_smykoff"
-  ];
-
   services.xserver = {
     enable = true;
 
-    # Configure keymap in X11
     xkb = {
       layout = "us,ru";
       variant = "";
@@ -27,15 +19,9 @@
     desktopManager.gnome.enable = true;
   };
 
-  environment.defaultPackages = with pkgs; [
-    i3status
-    i3lock
-    dmenu
-  ];
-
   programs.zsh.enable = true;
   programs.sway.enable = true;
-  programs.sway.extraOptions = [ "--unsupported-gpu" ];
+  programs.sway.extraOptions = [ "--unsupported-gpu" "--my-next-gpu-wont-be-nvidia" ];
   programs.ssh.startAgent = true;
   programs.appimage = {
     enable = true;

@@ -5,4 +5,7 @@ in {
   "m1lav.conf.age".publicKeys = [ smykoil smykoff ];
   "bebra.conf.age".publicKeys = [ smykoil smykoff ];
   "pupa.conf.age".publicKeys = [ smykoil smykoff ];
+
+  "dev-laptop.conf.age".publicKeys = [ smykoil smykoff ];
+  "dev-station.conf.age".publicKeys = [ smykoil smykoff ];
 }
