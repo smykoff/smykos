@@ -3,20 +3,7 @@
     ./main.nix
     ./vpn
     ./programs/packages.nix
-
-    ./sections/agenix.nix
-    ./sections/boot.nix
-    ./sections/console.nix
-    ./sections/flakes-feature.nix
-    ./sections/fonts.nix
-    ./sections/language.nix
-    ./sections/libsecret.nix
-    ./sections/network.nix
-    ./sections/printing.nix
-    ./sections/sounds.nix
-    ./sections/timezone.nix
-    ./sections/users.nix
-    ./sections/xdg.nix
+    ./sections
   ];
 
   # This value determines the NixOS release from which the default
