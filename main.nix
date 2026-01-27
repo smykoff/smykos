@@ -21,7 +21,7 @@
 
   programs.zsh.enable = true;
   programs.sway.enable = true;
-  programs.sway.extraOptions = [ "--unsupported-gpu" "--my-next-gpu-wont-be-nvidia" ];
+  programs.sway.extraOptions = [ "--unsupported-gpu" ];
   programs.ssh.startAgent = true;
   programs.appimage = {
     enable = true;
