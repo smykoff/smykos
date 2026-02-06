@@ -5,4 +5,5 @@ in {
   "m1lav.json.age".publicKeys = [ smykoil smykoff ];
   "kart.json.age".publicKeys = [ smykoil smykoff ];
   "my.json.age".publicKeys = [ smykoil smykoff ];
+  "nixoswg.json.age".publicKeys = [ smykoil smykoff ];
 }

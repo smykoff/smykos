@@ -1,7 +1,7 @@
 { config, ... }: {
-  age.secrets."m1lav.conf.age" = {
-    file = ./m1lav.conf.age;
-    path = "/etc/wireguard/m1lav.conf";
+  age.secrets."nixos.conf.age" = {
+    file = ./nixos.conf.age;
+    path = "/etc/wireguard/nixos.conf";
     mode = "600";
     owner = "root";
   };
@@ -21,8 +21,8 @@
   };
 
   networking.wg-quick.interfaces = {
-    wg = {
-      configFile = config.age.secrets."m1lav.conf.age".path;
+    nixos = {
+      configFile = config.age.secrets."nixos.conf.age".path;
       autostart = false;
     };
   };

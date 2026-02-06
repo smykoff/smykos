@@ -26,8 +26,7 @@ let
   };
 
   configs = [
-    "kart"
-    "m1lav"
+    "nixoswg"
     "my"
   ];
 
