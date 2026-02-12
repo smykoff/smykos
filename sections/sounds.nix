@@ -12,6 +12,14 @@
     #   quantum = 64;
     #   rate = 48000;
     # };
+
+    extraConfig.pipewire = {
+      "bluez-monitor.conf" = {
+        "properties" = {
+          "bluez5.headset-roles" = [ ];
+        };
+      };
+    };
   };
 
   security.rtkit.enable = true;

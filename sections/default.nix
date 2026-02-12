@@ -13,5 +13,6 @@
     ./timezone.nix
     ./users.nix
     ./xdg.nix
+    ./bluetooth.nix
   ];
 }
