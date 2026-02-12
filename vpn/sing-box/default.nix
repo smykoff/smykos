@@ -1,42 +1,26 @@
 { config, pkgs, ... }:
 
 let
-  makeSingBoxService = name: {
-    age.secrets."${name}.json.age" = {
-      file = ./${name}.json.age;
-      path = "/etc/sing-box/${name}.json";
-      mode = "644";
-      owner = "root";
-    };
+  utils = import ./utils.nix { inherit pkgs config; };
 
-    systemd.services."vpn-${name}" = {
-      enable = true;
-      description = "Sing-Box (${name})";
-      after = [ "network.target" ];
-      wantedBy = [ "multi-user.target" ];
+  encryptedConfigs = [ "nixoswg" "my" ];
+  singBoxAgeServices =
+    builtins.listToAttrs (map (name: {
+      name = "singbox-${name}";
+      value = utils.makeSingBoxAgeService name;
+    }) encryptedConfigs);
 
-      serviceConfig = {
-        ExecStart = "${pkgs.sing-box}/bin/sing-box run -c ${config.age.secrets."${name}.json.age".path}";
-        Restart = "always";
-        DynamicUser = true;
-        CapabilityBoundingSet = "CAP_NET_ADMIN CAP_NET_BIND_SERVICE";
-        LimitNOFILE = 1048576;
-      };
-    };
-  };
-
-  configs = [
-    "nixoswg"
-    "my"
-  ];
-
-  singBoxServices = builtins.listToAttrs (map (name: {
-    name = "singbox-${name}";
-    value = makeSingBoxService name;
-  }) configs);
-
+  configs = [ "router" ];
+  singBoxServices =
+    builtins.listToAttrs (map (name: {
+      name = "singbox-${name}";
+      value = utils.makeSingBoxService name;
+    }) configs);
 in {
-  imports = builtins.attrValues singBoxServices;
+  imports = builtins.attrValues singBoxServices ++ builtins.attrValues singBoxAgeServices;
 
   environment.systemPackages = [ pkgs.sing-box ];
+
+  environment.etc."sing-box/geoip.dat".source = utils.geoip;
+  environment.etc."sing-box/geosite.dat".source = utils.geosite;
 }
