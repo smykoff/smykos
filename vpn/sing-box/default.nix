@@ -15,6 +15,9 @@ in {
     wantedBy = [ "multi-user.target" ];
 
     serviceConfig = {
+      User = "root";
+      Group = "root";
+
       StateDirectory = "sing-box";
       CacheDirectory = "sing-box";
       ReadWritePaths = "/var/cache/sing-box";
