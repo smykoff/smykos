@@ -31,5 +31,5 @@ nixos-generate-config --root /mnt
 cp /mnt/etc/nixos/hardware-configuration.nix /etc/nixos/
 
 # Установка
-nixos-install --flake github:smykoff/smykos#laptop # laptop заменить на нужный конф
+nixos-install --impure --flake github:smykoff/smykos#laptop # laptop заменить на нужный конф
 ```
