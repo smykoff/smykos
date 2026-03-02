@@ -9,4 +9,5 @@ in {
 
   "dev-laptop.conf.age".publicKeys = [ smykoil smykoff ];
   "dev-station.conf.age".publicKeys = [ smykoil smykoff ];
+  "dev-neutron.conf.age".publicKeys = [ smykoil smykoff ];
 }
