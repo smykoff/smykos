@@ -12,7 +12,7 @@
     helix
     psmisc
     sshfs
-    go
+    go lua lua-language-server
     python312 python313 python314 ruff
     git
     whois
