@@ -1,0 +1,151 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns-1111",
+        "address": "https://1.1.1.1/dns-query",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-8888",
+        "address": "https://8.8.8.8/dns-query",
+        "detour": "direct"
+      },
+      {
+        "tag": "dns-local",
+        "address": "local",
+        "detour": "direct"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "dns-1111"
+      }
+    ],
+    "final": "dns-local",
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun",
+      "interface_name": "singbox",
+      "address": [
+        "172.19.0.1/30"
+      ],
+      "mtu": 1500,
+      "auto_route": true,
+      "stack": "gvisor",
+      "sniff": true,
+      "sniff_override_destination": false
+    },
+    {
+      "type": "mixed",
+      "tag": "router",
+      "listen": "127.0.0.1",
+      "listen_port": 1090
+    },
+    {
+      "type": "mixed",
+      "tag": "ru",
+      "listen": "127.0.0.1",
+      "listen_port": 1080
+    },
+    {
+      "type": "mixed",
+      "tag": "us",
+      "listen": "127.0.0.1",
+      "listen_port": 1081
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "action": "resolve",
+        "strategy": "prefer_ipv4"
+      },
+      {
+        "inbound": "ru",
+        "outbound": "ru-nixos-wg"
+      },
+      {
+        "inbound": "us",
+        "outbound": "us-nixos-vless"
+      },
+      {
+        "inbound": "router",
+        "rule_set": [
+          "youtube",
+          "instagram"
+        ],
+        "outbound": "ru-nixos-wg"
+      },
+      {
+        "inbound": "router",
+        "rule_set": [
+          "ru-bundle"
+        ],
+        "outbound": "us-nixos-vless"
+      },
+      {
+        "inbound": "tun",
+        "outbound": "ru-nixos-wg",
+        "rule_set": [
+          "discord"
+        ]
+      },
+      {
+        "inbound": "tun",
+        "outbound": "direct"
+      }
+    ],
+    "rule_set": [
+      {
+        "tag": "ru-bundle",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/ru-bundle.srs"
+      },
+      {
+        "tag": "youtube",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/vernette/rulesets/raw/master/srs/youtube.srs"
+      },
+      {
+        "tag": "instagram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/vernette/rulesets/raw/master/srs/instagram.srs"
+      },
+      {
+        "tag": "discord",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/vernette/rulesets/raw/master/srs/discord-full.srs"
+      }
+    ],
+    "final": "direct",
+    "auto_detect_interface": true
+  },
+  "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "path": "/var/cache/sing-box/router.json"
+    }
+  }
+}

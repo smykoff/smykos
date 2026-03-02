@@ -1,26 +1,28 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
-  utils = import ./utils.nix { inherit pkgs config; };
-
-  encryptedConfigs = [ "nixoswg" "my" ];
-  singBoxAgeServices =
-    builtins.listToAttrs (map (name: {
-      name = "singbox-${name}";
-      value = utils.makeSingBoxAgeService name;
-    }) encryptedConfigs);
-
-  configs = [ "router" ];
-  singBoxServices =
-    builtins.listToAttrs (map (name: {
-      name = "singbox-${name}";
-      value = utils.makeSingBoxService name;
-    }) configs);
+  utils = import ./utils.nix { inherit pkgs; };
+  outbounds = [ "ru-nixos-wg" "us-nixos-vless" ];
 in {
-  imports = builtins.attrValues singBoxServices ++ builtins.attrValues singBoxAgeServices;
-
+  imports = map utils.decryptOutbound outbounds;
   environment.systemPackages = [ pkgs.sing-box ];
+  environment.etc."sing-box/config.json".source = ./config.json;
 
-  environment.etc."sing-box/geoip.dat".source = utils.geoip;
-  environment.etc."sing-box/geosite.dat".source = utils.geosite;
+  systemd.services."vpn-singbox" = {
+    enable = true;
+    description = "Sing-Box";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+
+    serviceConfig = {
+      StateDirectory = "sing-box";
+      CacheDirectory = "sing-box";
+      ReadWritePaths = "/var/cache/sing-box";
+
+      ExecStart = "${pkgs.sing-box}/bin/sing-box run -C /etc/sing-box/";
+      Restart = "always";
+      CapabilityBoundingSet = "CAP_NET_ADMIN CAP_NET_BIND_SERVICE";
+      LimitNOFILE = 1048576;
+    };
+  };
 }
