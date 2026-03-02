@@ -14,7 +14,7 @@
     ../programs/ssh-server.nix
     ../programs/docker.nix
 
-    ../modules/gpu-nvidia.nix
+    ../modules/gpu-amd.nix
     ../modules/dm-ly.nix
   ];
 }
