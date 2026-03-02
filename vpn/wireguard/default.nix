@@ -20,6 +20,13 @@
     owner = "root";
   };
 
+  age.secrets."dev-neutron.conf.age" = {
+    file = ./dev-neutron.conf.age;
+    path = "/etc/wireguard/dev-neutron.conf";
+    mode = "600";
+    owner = "root";
+  };
+
   networking.wg-quick.interfaces = {
     nixos = {
       configFile = config.age.secrets."nixos.conf.age".path;
