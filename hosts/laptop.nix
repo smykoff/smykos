@@ -13,6 +13,7 @@
   imports = [
     ../programs/ssh-server.nix
     ../programs/docker.nix
+    ../programs/proxychains.nix
 
     ../modules/gpu-amd.nix
     ../modules/dm-ly.nix
