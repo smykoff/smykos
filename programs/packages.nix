@@ -10,6 +10,7 @@
 
     yazi
     helix
+    neovim fd tree-sitter ripgrep
     psmisc
     sshfs
     go lua lua-language-server
