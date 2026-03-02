@@ -11,6 +11,7 @@
   };
 
   imports = [
+    ../programs/zapret
     ../programs/ssh-server.nix
     ../programs/docker.nix
     ../programs/proxychains.nix
