@@ -36,6 +36,11 @@
           config = ./hosts/laptop.nix;
           hostName = "laptop";
         };
+
+        neutron = {
+          config = ./hosts/neutron.nix;
+          hostName = "neutron";
+        };
       };
 
       mkSystem = hostConfig: nixpkgs.lib.nixosSystem {
