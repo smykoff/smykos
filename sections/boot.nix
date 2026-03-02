@@ -7,6 +7,8 @@
   boot.plymouth.logo = ../plymouth/smykoil2.png;
   boot.plymouth.theme = "fade-in"; # или "spinfinity", "fade-in", "tribar", "text"
 
+  boot.supportedFilesystems = [ "f2fs" "ext4" ];
+
   boot.kernelModules = [ "i2c-dev" ];
   boot.kernelParams = [
     "quiet"
