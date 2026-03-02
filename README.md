@@ -28,6 +28,7 @@ lsblk -f # тип должен быть f2fs
 
 # Генерация базового конфига
 nixos-generate-config --root /mnt
+cp /mnt/etc/nixos/hardware-configuration.nix /etc/nixos/
 
 # Установка
 nixos-install --flake github:smykoff/smykos#laptop # laptop заменить на нужный конф
