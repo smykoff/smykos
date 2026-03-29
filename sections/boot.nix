@@ -1,11 +1,22 @@
+{ pkgs, ... }:
+
 {
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.plymouth.enable = true;
-  boot.plymouth.logo = ../plymouth/smykoil2.png;
-  boot.plymouth.theme = "fade-in"; # или "spinfinity", "fade-in", "tribar", "text"
+  # boot.plymouth.logo = ../plymouth/smykoil2.png;
+  boot.plymouth.theme = "connect"; # или "spinfinity", "fade-in", "tribar", "text"
+
+  boot.plymouth.themePackages = with pkgs; [
+    adi1090x-plymouth-themes
+
+    # By default we would install all themes
+    # (adi1090x-plymouth-themes.override {
+    #   selected_themes = [ "rings" ];
+    # })
+  ];
 
   boot.supportedFilesystems = [ "f2fs" "ext4" ];
 
